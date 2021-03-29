@@ -34,7 +34,43 @@ void magazin::Checking()
 		cout << "\nФИО:" << FIO[i];
 		cout << "\nНомер телефона:" << number[i];
 		cout << "\nАдрес:" << adres[i];
-		cout << "\nДата регистрации:" << date[i] << endl;
+		cout << "\nДата регистрации:\n" << date[i] << endl;
+	}
+	Menu();
+}
+
+void magazin::proverka_zapisey()
+{
+	for (int i = 0; i < size_list; i++)
+	{
+		if (FIO[i] == FIO[i++])
+		{
+			StrIter = FIO.begin();
+			advance(StrIter, i);
+			FIO.erase(StrIter);
+			StrIter = adres.begin();
+			advance(StrIter, i);
+			adres.erase(StrIter);
+			StrIter = number.begin();
+			advance(StrIter, i);
+			number.erase(StrIter);
+			StrIter = date.begin();
+			advance(StrIter, i);
+			date.erase(StrIter);
+
+			StrIter = FIO.begin();
+			advance(StrIter, i);
+			FIO.erase(StrIter);
+			StrIter = adres.begin();
+			advance(StrIter, i);
+			adres.erase(StrIter);
+			StrIter = number.begin();
+			advance(StrIter, i);
+			number.erase(StrIter);
+			StrIter = date.begin();
+			advance(StrIter, i);
+			date.erase(StrIter);
+		}
 	}
 	Menu();
 }
@@ -42,7 +78,7 @@ void magazin::Checking()
 void magazin::Menu()
 {
 	setlocale(LC_ALL, "ru");
-	cout << "\n1.Заполнение\n2.Список\n";
+	cout << "\n1.Заполнение\n2.Список\n3.Проверка записей\n";
 	int choice;
 	cin >> choice;
 	switch (choice)
@@ -52,6 +88,9 @@ void magazin::Menu()
 		break;
 	case 2:
 		Checking();
+		break;
+	case 3:
+		proverka_zapisey();
 		break;
 	default:
 		Menu();
