@@ -43,33 +43,24 @@ void magazin::proverka_zapisey()
 {
 	for (int i = 0; i < size_list; i++)
 	{
-		if (FIO[i] == FIO[i++])
+		for (int i1 = 1+i; i1 < size_list-1; i1++)
 		{
-			StrIter = FIO.begin();
-			advance(StrIter, i);
-			FIO.erase(StrIter);
-			StrIter = adres.begin();
-			advance(StrIter, i);
-			adres.erase(StrIter);
-			StrIter = number.begin();
-			advance(StrIter, i);
-			number.erase(StrIter);
-			StrIter = date.begin();
-			advance(StrIter, i);
-			date.erase(StrIter);
-
-			StrIter = FIO.begin();
-			advance(StrIter, i);
-			FIO.erase(StrIter);
-			StrIter = adres.begin();
-			advance(StrIter, i);
-			adres.erase(StrIter);
-			StrIter = number.begin();
-			advance(StrIter, i);
-			number.erase(StrIter);
-			StrIter = date.begin();
-			advance(StrIter, i);
-			date.erase(StrIter);
+			if (FIO[i] == FIO[i1] && adres[i] == adres[i1])
+			{
+				StrIter = FIO.begin();
+				advance(StrIter, i1);
+				FIO.erase(StrIter);
+				StrIter = adres.begin();
+				advance(StrIter, i1);
+				adres.erase(StrIter);
+				StrIter = number.begin();
+				advance(StrIter, i1);
+				number.erase(StrIter);
+				StrIter = date.begin();
+				advance(StrIter, i1);
+				date.erase(StrIter);
+				size_list--;
+			}
 		}
 	}
 	Menu();
